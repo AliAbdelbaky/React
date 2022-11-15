@@ -5,10 +5,11 @@ class StateComp extends Component {
         super();
         this.state = {
             msg: "Welcome from state component",
+            newMsg:"thkx ♥"
         };
     }
     changeMsg = () => {
-        this.setState({ msg: "thk u ♥" });
+        this.setState((oldState)=>({ msg: oldState.newMsg }));
     };
     render() {
         return (
