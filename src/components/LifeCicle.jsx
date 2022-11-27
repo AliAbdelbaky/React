@@ -11,8 +11,8 @@ class LifeCicle extends Component {
     { id: 12, text: "ali4" },
   ];
   renderingList = () => {
-    return this.arr.map((x) => {
-      return <div className={x.id}>{x.text}</div>;
+    return this.arr.map((x,index) => {
+      return <div className={x.id} key={index}>{x.text}</div>;
     });
   };
   render() {
