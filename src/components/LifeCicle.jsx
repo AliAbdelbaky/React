@@ -3,20 +3,29 @@ import React, { Component } from "react";
 class LifeCicle extends Component {
   constructor() {
     super();
+    this.state = {
+      name: "",
+    };
   }
-  arr = [
-    { id: 1, text: "ali" },
-    { id: 14, text: "ali2" },
-    { id: 13, text: "ali3" },
-    { id: 12, text: "ali4" },
-  ];
-  renderingList = () => {
-    return this.arr.map((x,index) => {
-      return <div className={x.id} key={index}>{x.text}</div>;
-    });
+  handellChange = ({target}) => {
+    console.log(target.value);
+    console.log("change", this.state?.name);
   };
+  handellSubmit = (e) => {
+    e.preventDefault();
+    this.setState({
+      name: e.target.name.value,
+    });
+    console.log("submited", e.target.name.value);
+  };
+
   render() {
-    return <div>LifeCicle {this.renderingList()}</div>;
+    return (
+      <form onSubmit={(e) => this.handellSubmit(e)}>
+        <input id="name" type="text" onChange={(e) => this.handellChange(e)} />
+        <button type="submit">submit</button>
+      </form>
+    );
   }
 }
 export default LifeCicle;
