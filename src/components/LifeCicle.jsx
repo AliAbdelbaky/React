@@ -4,18 +4,19 @@ class LifeCicle extends Component {
   constructor() {
     super();
   }
-  componentDidMount() {
-    console.log("component Did mount");
-  }
-  componentWillUnmount() {
-    console.log("componentWillUnmount");
-  }
-  log() {
-    console.log('render method')
-    return 'render method'
-  }
+  arr = [
+    { id: 1, text: "ali" },
+    { id: 14, text: "ali2" },
+    { id: 13, text: "ali3" },
+    { id: 12, text: "ali4" },
+  ];
+  renderingList = () => {
+    return this.arr.map((x) => {
+      return <div className={x.id}>{x.text}</div>;
+    });
+  };
   render() {
-    return <div>LifeCicle {this.log()}</div>;
+    return <div>LifeCicle {this.renderingList()}</div>;
   }
 }
 export default LifeCicle;
